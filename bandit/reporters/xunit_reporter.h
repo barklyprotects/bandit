@@ -19,7 +19,7 @@ namespace bandit { namespace detail {
     {
       progress_reporter::it_starting(desc);
       work_stm_ << "\t<testcase classname=\"" << escape(current_context_name()) << "\" ";
-      work_stm_ << "name=\"" << escape(desc) << "\" time=\"0\">\n";
+      work_stm_ << "name=\"" << escape(desc) << "\" time=\"0.0\">\n";
     }
 
     void it_succeeded(const char* desc)
@@ -46,7 +46,7 @@ namespace bandit { namespace detail {
     {
       progress_reporter::it_skip(desc);
       work_stm_ << "\t<testcase classname=\"" << escape(current_context_name()) << "\" ";
-      work_stm_ << "name=\"" << escape(desc) << "\" time=\"0\">\n";
+      work_stm_ << "name=\"" << escape(desc) << "\" time=\"0.0\">\n";
       work_stm_ << "\t\t<skipped />\n";
       work_stm_ << "\t</testcase>\n";
     }
@@ -56,9 +56,9 @@ namespace bandit { namespace detail {
       //This header line prevents Bamboo's junit test parser task from parsing
       //the output file correctly
       //stm_ << "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-      
-      stm_ << "<testsuite name=\"bandit\" tests=\"" << specs_run_ << "\" errors=\"0\" failures=\""
-           << specs_failed_ << "\"";
+      //stm_ << "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+      //stm_ << "<testsuite name=\"bandit\" tests=\"" << specs_run_ << "\" errors=\"0\" failures=\""
+      //     << specs_failed_ << "\"";
 
       if(specs_skipped_ > 0)
       {

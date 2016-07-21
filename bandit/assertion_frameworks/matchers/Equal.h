@@ -60,9 +60,6 @@ namespace bandit { namespace Matchers {
         return Equal<T>(expectedValue);
     }
 
-// CYLENT change. This is providing no value, and was generating compiler warnings
-// #pragma mark equality operators
-
     template<typename T, typename U>
     bool operator==(const ValueProxy<T>& actualValue, const U& expectedValue)
     {
